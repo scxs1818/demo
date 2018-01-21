@@ -7,5 +7,7 @@ public class Testing {
      */
     public static void main(String[] args) {
         System.err.println("asdasdasd");
+        System.out.printf("sdfasdasdasda");
+        System.out.printf("sdfasdasdasda");
     }
 }
