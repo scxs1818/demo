@@ -9,5 +9,6 @@ public class Testing {
         System.err.println("asdasdasd");
         System.out.printf("sdfasdasdasda");
         System.out.printf("sdfasdasdasda");
+        System.out.printf("sdfasdasdasda");
     }
 }
