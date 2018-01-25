@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.bean.ClassInfo;
 import com.demo.bean.User;
+import com.demo.bean.utils.Sequence;
+import com.demo.common.service.SequenceService;
 import com.demo.service.UserServer;
 
 @RestController
 public class TestController {
 	@Resource
 	UserServer service;
+	@Resource
+	SequenceService seqService;
+	
 	@RequestMapping("/abc")
 	public String getMessage(){
 		return "hello world";
@@ -52,5 +57,14 @@ public class TestController {
 	public int addClass(ClassInfo classInfo) {
 		System.out.println("classInfo"+classInfo);
 		return service.inserClassInfo(classInfo);
+	}
+	@RequestMapping("/condition")
+	public List<User> selectByConditon(String name) {
+		System.out.println("name="+name);
+		return service.selectByConditon(name);
+	}
+	@RequestMapping("/update")
+	public int updateSeq(String name){
+		return seqService.update(name);
 	}
 }

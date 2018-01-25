@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,8 +46,6 @@ public class UserServiceImpl implements UserServer{
 	 */
 	public List<User> selectAll(int pageNum,int pageSize){
 		PageHelper.startPage(pageNum,pageSize);
-		PageInfo<User> pageInfo =new PageInfo<User>(baseMapper.selectAll()) ;
-		System.out.println(pageInfo);
 		return baseMapper.selectAll();
 	}
 
@@ -72,5 +69,14 @@ public class UserServiceImpl implements UserServer{
 		
 		return classMapper.insert(classIndfo);
 	}
+
+	@Override
+	public List<User> selectByConditon(String name) {
+		User user = new User();
+		user.setName(name);
+		List<User> list=	baseMapper.select(user);
+		return list;
+	}
+	
 	
 }
