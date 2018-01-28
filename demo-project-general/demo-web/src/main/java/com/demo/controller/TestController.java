@@ -1,12 +1,13 @@
 package com.demo.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.demo.bean.ClassInfo;
 import com.demo.bean.User;
@@ -66,5 +67,23 @@ public class TestController {
 	@RequestMapping("/update")
 	public int updateSeq(String name){
 		return seqService.update(name);
+	}
+	@RequestMapping("testHashMap")
+	public List<User> testMap(@RequestParam Map<String,Object> map){
+		List<User> list = new ArrayList<User>();
+		String name="";
+		int age=0;
+		if(map.containsKey("name")){
+			name =(String)map.get("name");
+		}
+		if(map.containsKey("age")){
+			age =Integer.parseInt(map.get("age").toString());
+		}
+		User user = new User();
+		user.setUserId(3);
+		user.setName(name);
+		user.setAge(age);
+		list.add(user);
+		return list;
 	}
 }

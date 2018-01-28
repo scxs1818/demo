@@ -20,6 +20,7 @@
       <module name="demo-project-general" target="1.8" />
       <module name="demo-service" target="1.8" />
       <module name="demo-web" target="1.8" />
+      <module name="eeeeeee" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
